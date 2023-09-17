@@ -1,7 +1,7 @@
 {
   "name": "vision-camera-pose-detector",
   "version": "0.1.0",
-  "description": "MLKit pose detection for react-native-vision-camera",
+  "description": "MLKit PoseDetectionAccurate for react-native-vision-camera",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
