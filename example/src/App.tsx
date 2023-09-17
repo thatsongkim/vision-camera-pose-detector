@@ -1,31 +1,33 @@
-import * as React from 'react';
-
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'vision-camera-pose-detector';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import {
+  Camera,
+  useCameraDevices,
+  useFrameProcessor,
+} from 'react-native-vision-camera';
+import { detectPose } from 'vision-camera-pose-detector';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const devices = useCameraDevices();
+  const device = devices.front;
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
+  const frameProcessor = useFrameProcessor((frame) => {
+    'worklet';
+    const pose = detectPose(frame);
+    console.log(pose);
   }, []);
 
+  if (device == null) return <View />;
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <Camera
+      style={StyleSheet.absoluteFill}
+      device={device}
+      isActive={!!device}
+      video={true}
+      orientation="portrait"
+      onError={(err) => console.log(err)}
+      fps={30}
+      frameProcessor={frameProcessor}
+    />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
