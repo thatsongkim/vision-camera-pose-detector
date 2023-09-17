@@ -1,6 +1,6 @@
 # vision-camera-pose-detector
 
-MLKit pose detection for react-native-vision-camera
+MLKit PoseDetectionAccurate for react-native-vision-camera
 
 ## Installation
 
@@ -11,11 +11,14 @@ npm install vision-camera-pose-detector
 ## Usage
 
 ```js
-import { multiply } from 'vision-camera-pose-detector';
+import { detectPose } from "vision-camera-pose-detector";
 
 // ...
 
-const result = await multiply(3, 7);
+const frameProcessor = useFrameProcessor((frame) => {
+  'worklet';
+  const pose = detectPose(frame);
+}, []);
 ```
 
 ## Contributing
