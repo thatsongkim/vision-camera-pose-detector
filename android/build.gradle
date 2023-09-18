@@ -89,6 +89,9 @@ dependencies {
   // For > 0.71, this will be replaced by `com.facebook.react:react-android:$version` by react gradle plugin
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
+  implementation 'androidx.camera:camera-core:1.2.3'
+  implementation project(':react-native-vision-camera')
+  implementation 'com.google.mlkit:pose-detection-accurate:18.0.0-beta3'
 }
 
 if (isNewArchitectureEnabled()) {
