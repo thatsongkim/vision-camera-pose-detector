@@ -30,7 +30,8 @@
   MLKVision3DPoint *position = landmark.position;
   return @{
     @"x": [NSNumber numberWithDouble:position.x],
-    @"y": [NSNumber numberWithDouble:position.y]
+    @"y": [NSNumber numberWithDouble:position.y],
+    @"confidence": [NSNumber numberWithDouble:landmark.inFrameLikelihood],
   };
 }
 
@@ -86,8 +87,8 @@
       @"rightAnkle": [PoseDetectorPlugin getLandmarkPosition:[pose landmarkOfType:MLKPoseLandmarkTypeRightAnkle]],
       @"leftHeel": [PoseDetectorPlugin getLandmarkPosition:[pose landmarkOfType:MLKPoseLandmarkTypeLeftHeel]],
       @"rightHeel": [PoseDetectorPlugin getLandmarkPosition:[pose landmarkOfType:MLKPoseLandmarkTypeRightHeel]],
-      @"leftToe": [PoseDetectorPlugin getLandmarkPosition:[pose landmarkOfType:MLKPoseLandmarkTypeLeftToe]],
-      @"rightToe": [PoseDetectorPlugin getLandmarkPosition:[pose landmarkOfType:MLKPoseLandmarkTypeRightToe]]
+      @"leftFootIndex": [PoseDetectorPlugin getLandmarkPosition:[pose landmarkOfType:MLKPoseLandmarkTypeLeftToe]],
+      @"rightFootIndex": [PoseDetectorPlugin getLandmarkPosition:[pose landmarkOfType:MLKPoseLandmarkTypeRightToe]]
     };
   }
   return nil;
