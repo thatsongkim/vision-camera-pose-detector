@@ -1,11 +1,18 @@
 # vision-camera-pose-detector
 
-MLKit PoseDetectionAccurate for react-native-vision-camera
+MLKit PoseDetectionAccurate for react-native-vision-camera V3
+
+## 🚨Warning: iOS only for now
+[Related issue](https://github.com/mrousavy/react-native-vision-camera/issues/1771)
 
 ## Installation
 
 ```sh
 npm install vision-camera-pose-detector
+```
+or
+```sh
+yarn add vision-camera-pose-detector
 ```
 
 ## Usage
