@@ -102,7 +102,7 @@ public class VisionCameraPoseDetectorModule extends FrameProcessorPlugin {
         return landmarks;
       }
     } catch (Exception e) {
-      Log.e("Error", "Error processing pose detection", e);
+      e.printStackTrace();
     }
     return null;
   }
