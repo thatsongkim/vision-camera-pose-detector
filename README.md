@@ -2,9 +2,6 @@
 
 MLKit PoseDetectionAccurate for react-native-vision-camera V3
 
-## 🚨Warning: iOS only for now
-[Related issue](https://github.com/mrousavy/react-native-vision-camera/issues/1771)
-
 ## Installation
 
 ```sh
