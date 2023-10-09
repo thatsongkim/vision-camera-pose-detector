@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 import {
   Camera,
   useCameraDevice,
@@ -9,6 +9,7 @@ import { detectPose } from 'vision-camera-pose-detector';
 
 export default function App() {
   const device = useCameraDevice('front');
+  const isIOS = Platform.OS === 'ios';
 
   const frameProcessor = useFrameProcessor((frame) => {
     'worklet';
@@ -22,6 +23,7 @@ export default function App() {
       style={StyleSheet.absoluteFill}
       device={device}
       isActive={!!device}
+      pixelFormat={isIOS ? 'native' : 'yuv'}
       video={true}
       orientation="portrait"
       onError={(err) => console.log(err)}
