@@ -2,14 +2,13 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import {
   Camera,
-  useCameraDevices,
+  useCameraDevice,
   useFrameProcessor,
 } from 'react-native-vision-camera';
 import { detectPose } from 'vision-camera-pose-detector';
 
 export default function App() {
-  const devices = useCameraDevices();
-  const device = devices.front;
+  const device = useCameraDevice('front');
 
   const frameProcessor = useFrameProcessor((frame) => {
     'worklet';
